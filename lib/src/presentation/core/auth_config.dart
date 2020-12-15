@@ -17,6 +17,7 @@ abstract class AuthConfig with _$AuthConfig {
     AppleButtonConfig appleButton,
     ButtonConfig githubButton,
     ButtonConfig twitterButton,
+    ButtonConfig microsoftButton,
     TextFieldConfig emailTextField,
     TextFieldConfig passwordTextField,
   }) = _AuthConfig;
