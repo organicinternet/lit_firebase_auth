@@ -71,6 +71,14 @@ extension AuthContext on BuildContext {
         .signInWithTwitter();
   }
 
+  /// Perform sign-in with Microsoft.
+  ///
+  /// Should only be used if you're creating your own custom sign-in form
+  Future<void> signInWithMicrosoft() async {
+    Provider.of<SignInHandlerStateNotifier>(this, listen: false)
+        .signInWithMicrosoft();
+  }
+
   /// Sign in with Credentials
   ///
   /// Should only be used if your implementing your own third party sign-in

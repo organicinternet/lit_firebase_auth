@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
               anonymous: true,
               github: true,
               twitter: true,
+              microsoft: true,
             ),
             child: MaterialApp(
               title: 'Material App',

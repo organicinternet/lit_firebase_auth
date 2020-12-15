@@ -244,6 +244,47 @@ class SignInWithTwitterButton extends StatelessWidget {
   }
 }
 
+/// Button to sign-in with Microsoft on Firebase
+///
+/// Make sure to enable Microsoft sign-in in your Firebase Authentication
+/// console
+///
+/// Create your own sign-in button by calling
+/// `context.signInWithMicrosoft();` in the [onPressed] handler
+class SignInWithMicrosoftButton extends StatelessWidget {
+  const SignInWithMicrosoftButton({
+    Key key,
+    this.config,
+  }) : super(key: key);
+
+  // final ButtonConfig config;
+  final ButtonConfig config;
+
+  static const String defaultLabel = 'Continue with Microsoft';
+
+  @override
+  Widget build(BuildContext context) {
+    return _SignInButton(
+      config: config ??
+          ButtonConfig.raisedIcon(
+            themedata: const ButtonThemeData(
+              buttonColor: Colors.white,
+              height: defaultButtonHeight,
+              textTheme: ButtonTextTheme.primary,
+            ),
+            icon: _IconWrapper(
+              buttonHeight: defaultButtonHeight,
+              child: LitAuthIcon.microsoft(),
+            ),
+            child: const _ContinueWithLabel(label: defaultLabel),
+          ),
+      onPressed: () {
+        context.signInWithMicrosoft();
+      },
+    );
+  }
+}
+
 /// Button to sign-in anonymously on Firebase
 ///
 /// Make sure to enable Anonymous sign-in in your Firebase Authentication

@@ -118,6 +118,13 @@ class StandardSignInWidget extends StatelessWidget {
                   config: config?.twitterButton,
                 ),
               ),
+            if (authProviders.microsoft)
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: SignInWithMicrosoftButton(
+                  config: config?.microsoftButton,
+                ),
+              ),
             const LoadingWidget(),
           ],
         ),

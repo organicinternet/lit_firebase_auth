@@ -53,6 +53,14 @@ class LitAuthIcon extends StatelessWidget {
     );
   }
 
+  // Microsoft logo [Image]
+  factory LitAuthIcon.microsoft({Size size = iconSize}) {
+    return LitAuthIcon._(
+      assetPath: 'graphics/microsoft.png',
+      size: size,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Image(

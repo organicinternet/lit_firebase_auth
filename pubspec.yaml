@@ -41,6 +41,7 @@ flutter:
 
   # To add assets to your package, add an assets section, like this:
   assets:
+    - graphics/microsoft.png
     - graphics/twitter_logo_blue.png
     - graphics/github.png
     - graphics/apple_logo_black.png

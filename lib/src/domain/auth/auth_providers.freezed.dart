@@ -41,6 +41,7 @@ mixin _$AuthProviders {
   bool get apple;
   bool get github;
   bool get twitter;
+  bool get microsoft;
 
   $AuthProvidersCopyWith<AuthProviders> get copyWith;
 }
@@ -55,7 +56,8 @@ abstract class $AuthProvidersCopyWith<$Res> {
       bool google,
       bool apple,
       bool github,
-      bool twitter});
+      bool twitter,
+      bool microsoft});
 }
 
 class _$AuthProvidersCopyWithImpl<$Res>
@@ -74,6 +76,7 @@ class _$AuthProvidersCopyWithImpl<$Res>
     Object apple = freezed,
     Object github = freezed,
     Object twitter = freezed,
+    Object microsoft = freezed,
   }) {
     return _then(_value.copyWith(
       emailAndPassword: emailAndPassword == freezed
@@ -84,6 +87,7 @@ class _$AuthProvidersCopyWithImpl<$Res>
       apple: apple == freezed ? _value.apple : apple as bool,
       github: github == freezed ? _value.github : github as bool,
       twitter: twitter == freezed ? _value.twitter : twitter as bool,
+      microsoft: microsoft == freezed ? _value.microsoft : microsoft as bool,
     ));
   }
 }
@@ -100,7 +104,8 @@ abstract class _$AuthProvidersCopyWith<$Res>
       bool google,
       bool apple,
       bool github,
-      bool twitter});
+      bool twitter,
+      bool microsoft});
 }
 
 class __$AuthProvidersCopyWithImpl<$Res>
@@ -121,6 +126,7 @@ class __$AuthProvidersCopyWithImpl<$Res>
     Object apple = freezed,
     Object github = freezed,
     Object twitter = freezed,
+    Object microsoft = freezed,
   }) {
     return _then(_AuthProviders(
       emailAndPassword: emailAndPassword == freezed
@@ -131,6 +137,7 @@ class __$AuthProvidersCopyWithImpl<$Res>
       apple: apple == freezed ? _value.apple : apple as bool,
       github: github == freezed ? _value.github : github as bool,
       twitter: twitter == freezed ? _value.twitter : twitter as bool,
+      microsoft: microsoft == freezed ? _value.microsoft : microsoft as bool,
     ));
   }
 }
@@ -142,13 +149,15 @@ class _$_AuthProviders implements _AuthProviders {
       this.google = false,
       this.apple = false,
       this.github = false,
-      this.twitter = false})
+      this.twitter = false,
+      this.microsoft = false})
       : assert(emailAndPassword != null),
         assert(anonymous != null),
         assert(google != null),
         assert(apple != null),
         assert(github != null),
-        assert(twitter != null);
+        assert(twitter != null),
+        assert(microsoft != null);
 
   @JsonKey(defaultValue: true)
   @override
@@ -168,10 +177,13 @@ class _$_AuthProviders implements _AuthProviders {
   @JsonKey(defaultValue: false)
   @override
   final bool twitter;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool microsoft;
 
   @override
   String toString() {
-    return 'AuthProviders(emailAndPassword: $emailAndPassword, anonymous: $anonymous, google: $google, apple: $apple, github: $github, twitter: $twitter)';
+    return 'AuthProviders(emailAndPassword: $emailAndPassword, anonymous: $anonymous, google: $google, apple: $apple, github: $github, twitter: $twitter, microsoft: $microsoft)';
   }
 
   @override
@@ -191,7 +203,11 @@ class _$_AuthProviders implements _AuthProviders {
             (identical(other.github, github) ||
                 const DeepCollectionEquality().equals(other.github, github)) &&
             (identical(other.twitter, twitter) ||
-                const DeepCollectionEquality().equals(other.twitter, twitter)));
+                const DeepCollectionEquality()
+                    .equals(other.twitter, twitter)) &&
+            (identical(other.microsoft, microsoft) ||
+                const DeepCollectionEquality()
+                    .equals(other.microsoft, microsoft)));
   }
 
   @override
@@ -202,7 +218,8 @@ class _$_AuthProviders implements _AuthProviders {
       const DeepCollectionEquality().hash(google) ^
       const DeepCollectionEquality().hash(apple) ^
       const DeepCollectionEquality().hash(github) ^
-      const DeepCollectionEquality().hash(twitter);
+      const DeepCollectionEquality().hash(twitter) ^
+      const DeepCollectionEquality().hash(microsoft);
 
   @override
   _$AuthProvidersCopyWith<_AuthProviders> get copyWith =>
@@ -216,7 +233,8 @@ abstract class _AuthProviders implements AuthProviders {
       bool google,
       bool apple,
       bool github,
-      bool twitter}) = _$_AuthProviders;
+      bool twitter,
+      bool microsoft}) = _$_AuthProviders;
 
   @override
   bool get emailAndPassword;
@@ -230,6 +248,8 @@ abstract class _AuthProviders implements AuthProviders {
   bool get github;
   @override
   bool get twitter;
+  @override
+  bool get microsoft;
   @override
   _$AuthProvidersCopyWith<_AuthProviders> get copyWith;
 }

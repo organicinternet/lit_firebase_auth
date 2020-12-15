@@ -106,6 +106,20 @@ class SignInHandlerStateNotifier extends StateNotifier<SignInHandlerState>
     );
   }
 
+  Future<void> signInWithMicrosoft() async {
+    if (!_authProviders.microsoft) {
+      throw AuthProviderNotEnabled('Microsoft');
+    }
+
+    _performActionOnAuthFacadeWithOAuthProviders(
+      () => _authFacade.signInWithOAuth(
+        'microsoft.com',
+        ["email"],
+        {"lang": "en"},
+      ),
+    );
+  }
+
   Future<void> signInWithCredential(AuthCredential credential) async {
     _performActionOnAuthFacadeWithOAuthProviders(
       () => _authFacade.signInWithCredential(credential),
